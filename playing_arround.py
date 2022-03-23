@@ -31,7 +31,7 @@ def create_snowflake(sides, length):
     #color(colors[i])
     snowflake_side(length, sides)
     right(360 / sides)
-
+    
 #speed(0)
 #create_snowflake(3,100)
 
@@ -45,9 +45,9 @@ def tree(size, levels, angle):
   right(angle)  
 
   tree(size * 0.8, levels -1, angle)
-
+  
   left(angle * 2)
-
+  
   tree(size * 0.8, levels -1, angle)
 
   right(angle)
@@ -74,7 +74,33 @@ def recursion_threes(count, starting_degree, size, levels, angle):
       if starting_degree == 180:
         starting_degree = 90
 
-recursion_threes(5, 90, 90, 7, 20)  
+#recursion_threes(5, 90, 90, 7, 20)  
+
+def shell(level, a, angle, growth):
+  speed(0)
+  if level == 0:
+    return
+  forward(a)
+  right(angle)
+  forward(a)
+  right(angle)
+  forward(a + growth)
+  right(angle)
+  forward(a + growth)
+  right(angle)
+  shell(level - 1, a + (2 * growth), angle, growth)
+
+for i in range(10):
+  shell(20, 2, 90, 2)
+  right(45)
+
+
+"""
+speed(0)
+tree(150, 8, 300)
+right(180)
+tree(150, 8, 310)
+"""
 
 
 """

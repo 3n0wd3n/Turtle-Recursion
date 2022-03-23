@@ -28,12 +28,12 @@ def snowflake_side(length, levels):
 def create_snowflake(sides, length):
   colors = ["green", "blue", "yellow", "orange"]
   for i in range(sides):
-    color(colors[i])
+    #color(colors[i])
     snowflake_side(length, sides)
     right(360 / sides)
-    
-speed(0)
-create_snowflake(4,200)
+
+#speed(0)
+#create_snowflake(3,100)
 
 def tree(size, levels, angle):
   if levels == 0:
@@ -42,35 +42,79 @@ def tree(size, levels, angle):
     color("black")
     return
   forward(size)
-  right(angle)
+  right(angle)  
 
   tree(size * 0.8, levels -1, angle)
-  
+
   left(angle * 2)
-  
+
   tree(size * 0.8, levels -1, angle)
 
   right(angle)
   backward(size)
 
+def snowflake_circle(count, degree, side, size):
+  speed(0)
+  for i in range(count):
+    size = size + (i * 10)
+    for i in range(3):
+      left(degree + 30)
+      create_snowflake(side, size)
+
+#snowflake_circle(15, 90, 3, 150)
+
+def recursion_threes(count, starting_degree, size, levels, angle):
+  speed(0)
+  for i in range(count):
+    size -= 30
+    levels -= 1
+    for i in range(4):
+      left(starting_degree)
+      tree(size, levels, angle)
+      if starting_degree == 180:
+        starting_degree = 90
+
+recursion_threes(3, 90, 90, 7, 20)  
+
+
+"""
 speed(0)
 left(90)
 tree(90, 6, 20)
+create_snowflake(3,100)
 left(180)
 tree(90, 6, 20)
+create_snowflake(3,100)
 left(90)
 tree(90, 6, 20)
+create_snowflake(3,100)
 left(180)
 tree(90, 6, 20)
+create_snowflake(3,100)
 left(90)
 tree(60, 6, 20)
+create_snowflake(3,100)
 left(180)
 tree(60, 6, 20)
+create_snowflake(3,100)
 left(90)
 tree(60, 6, 20)
+create_snowflake(3,100)
 left(180)
 tree(60, 6, 20)
-  
+create_snowflake(3,100)
+tree(30, 6, 20)
+create_snowflake(3,100)
+left(180)
+tree(30, 6, 20)
+create_snowflake(3,100)
+left(90)
+tree(30, 6, 20)
+create_snowflake(3,100)
+left(180)
+tree(30, 6, 20)
+create_snowflake(3,100)
+"""
 mainloop()
 
 

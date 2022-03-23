@@ -66,7 +66,7 @@ def snowflake_circle(count, degree, side, size):
 def recursion_threes(count, starting_degree, size, levels, angle):
   speed(0)
   for i in range(count):
-    size -= 30
+    size -= 10
     levels -= 1
     for i in range(4):
       left(starting_degree)
@@ -74,7 +74,7 @@ def recursion_threes(count, starting_degree, size, levels, angle):
       if starting_degree == 180:
         starting_degree = 90
 
-recursion_threes(3, 90, 90, 7, 20)  
+recursion_threes(5, 90, 90, 7, 20)  
 
 
 """
